@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <h2>My Addresses</h2>
+    <form #formRef="ngForm" (ngSubmit)="addAddress()" class="mb-4">
+        <div class="row">
+            <div class="col-md-6 mb-3">
+                <input [(ngModel)]="address.address_line" name="address_line" placeholder="Address Line"
+                    class="form-control" #addressInput="ngModel" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <input [(ngModel)]="address.city" name="city" placeholder="City" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <input [(ngModel)]="address.state" name="state" placeholder="State" class="form-control" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <input [(ngModel)]="address.zip_code" name="zip_code" placeholder="ZIP Code" class="form-control"
+                    required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <input [(ngModel)]="address.country" name="country" placeholder="Country" class="form-control" required>
+            </div>
+        </div>
+        <button [disabled]="formRef.invalid" class="btn btn-success" type="submit">Add Address</button>
+    </form>
+
+    <div *ngFor="let addr of addresses" class="card mb-2">
+        <div class="card-body d-flex justify-content-between align-items-center">
+            <div>
+                <p>{{ addr.address_line }}, {{ addr.city }}, {{ addr.state }} - {{ addr.zip_code }}, {{ addr.country }}
+                </p>
+            </div>
+            <button class="btn btn-danger" (click)="deleteAddress(addr.id)">Delete</button>
+        </div>
+    </div>
+</div>
