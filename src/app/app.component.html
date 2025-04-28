@@ -7,10 +7,14 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item" *ngIf="isLoggedIn()">
+                    <img class="img-fluid img-responsive img-rounded"
+                        style="border-radius:50%; max-height: 40px; max-width: 40px;" [src]="getprofilePicUrl()" />
+                </li>
+                <li class="nav-item" *ngIf="isLoggedIn()">
                     <a class="nav-link" routerLink="/home">Home</a>
                 </li>
                 <li class="nav-item" *ngIf="!isLoggedIn()">
-                    <a class="nav-link" routerLink="/login">Login</a>
+                    <a class="nav-link" routerLink="/">Login</a>
                 </li>
                 <li class="nav-item" *ngIf="!isLoggedIn()">
                     <a class="nav-link" routerLink="/register">Register</a>

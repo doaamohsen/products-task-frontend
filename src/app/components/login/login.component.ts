@@ -18,7 +18,7 @@ export class LoginComponent {
             next: (res) => {
                 if (res.token) {
                     localStorage.setItem('token', res.token);
-                    localStorage.setItem('user', JSON.stringify(res.user)); // optional, if you return user info
+                    localStorage.setItem('profilePicUrl', res.profilePicUrl); // optional, if you return user info
                 }
                 this.router.navigate(['/home']);
             },

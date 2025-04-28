@@ -17,7 +17,8 @@ export class AuthService {
 
     logout() {
         localStorage.removeItem('token');
-        this.router.navigate(['/login']);
+        localStorage.removeItem('profilePicUrl');
+        this.router.navigate(['/']);
     }
     getToken() {
         return localStorage.getItem('token');
@@ -25,5 +26,9 @@ export class AuthService {
 
     isLoggedIn() {
         return !!localStorage.getItem('token');
+    }
+    getprofilePicUrl() {
+        return localStorage.getItem('profilePicUrl');
+
     }
 }
